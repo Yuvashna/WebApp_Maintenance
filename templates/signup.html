@@ -1,0 +1,39 @@
+{% extends "base.html"%}
+{% block content %}
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Welcome to the DUT Maintenance site</h1>
+    <p>Please enter your details to login</p>
+    
+    {%- for category, message in get_flashed_messages(with_categories = true) %} 
+    <div class = "alert alert-danger"> 
+      {{ message }} 
+    </div> 
+    {%- endfor %}
+
+
+    <form action="{{request.path}}" method="post">
+      <label for="username">Username:</label>
+      <input type="text" id="username"  name="username1" required minlength="7" maxlength="8">
+      <div>
+        <p></p>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password1" required>
+      </div>
+      <input type="submit" value="Submit Form">
+      <p></p>
+      <div>
+        <a href="{{url_for('register')}}" class="link-primary">Forgot Password? | Click here to register</a>
+      </div>
+      <p></p><p></p><br>
+      <div>
+        <a href="{{url_for('help')}}" class="link-primary">Need Help? | Click here</a>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

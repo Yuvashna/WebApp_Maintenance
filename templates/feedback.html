@@ -1,0 +1,50 @@
+{% extends "base.html"%}
+{% block content %}
+
+<form action="{{request.path}}" method="post">
+    {%- for category, message in get_flashed_messages(with_categories = true) %} 
+      <div class = "alert alert-danger"> 
+        {{ message }} 
+      </div> 
+    {%- endfor %}
+<div class="container">
+    <div class="mb-3">
+        <label for="exampleInputstudentnum" class="form-label">Enter in Student Number</label>
+        <input type="text" class="form-control" id="exampleInputstudentnum" name="searchstud_num" required minlength="8" maxlength="8">
+    </div>
+    <input type = "submit" value = "Search" />
+        <table class="table" style="margin-left: 12px;">  <!--Table headers--> <th>
+             <tr style="color: black; "> 
+                <th>Ref Number</th>
+                <th>Student Number</th> 
+                <th>Campus Name</th> 
+                <th>Room code</th> 
+                <th>Fault Type</th> 
+                <th>Comments</th>
+                <th>Date logged</th>
+                <th>Progress</th>
+                <th>Date Completed</th>
+                <th>Feedback</th>
+             </tr> 
+            <tr> {%for fault in query%}
+                <td> {{fault.id}} </td> 
+                <td> {{fault.student_num}} </td>
+                <td> {{fault.build_name}} </td> 
+                <td> {{fault.build_room}} </td>
+                <td> {{fault.build_fault}} </td>
+                <td> {{fault.comments}} </td>
+                <td> {{fault.date_logged}} </td>
+                <td> {{fault.prgress}} </td>
+                <td> {{fault.date_completed}} </td>
+                <td> {{fault.feedback}} </td>
+            </tr>
+                {%endfor%} 
+            
+        </table> 
+</div>
+<div>
+    <a class="btn btn-primary" href="{{url_for('welcome_user')}}" role="button">Return to Home</a>
+  </div>
+</form>
+
+{% endblock %}

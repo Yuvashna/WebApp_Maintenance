@@ -1,0 +1,38 @@
+{% extends "base.html"%}
+{% block content %}
+
+
+<form action="{{request.path}}" method="post">
+    {%- for category, message in get_flashed_messages(with_categories = true) %} 
+      <div class = "alert alert-danger"> 
+        {{ message }} 
+      </div> 
+    {%- endfor %}
+
+    <div class="mb-3">
+      <label for="exampleInputref_num" class="form-label">Ref Number:</label>
+      <input type="Text" class="form-control" id="exampleInputref_num" name="ref_num" aria-describedby="emailHelp">
+    </div>
+    <div class="form-floating">
+        <label for="prgress_fault">Progress:</label>
+        <select class="form-control" name="prgress_fault" aria-label="Floating label select example">
+          <option value="Pending">Pending</option>
+          <option value="Assigned">Assigned</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+    <div class="mb-3">
+      <label for="exampleInputfeedback1" class="form-label">Feedback</label>
+      <input type="text" class="form-control" id="exampleInputFeedback1" name="feedback_maint">
+    </div>
+    <input type = "submit" value = "Submit" />
+    <br><br>
+    <div>
+        <a class="btn btn-primary" href="{{url_for('welcome')}}" role="button">Back to Home</a>
+    </div>
+  </form>
+
+
+
+{% endblock %}

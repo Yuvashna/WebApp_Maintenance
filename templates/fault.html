@@ -1,0 +1,62 @@
+{% extends "base.html"%}
+{% block content %}
+
+
+
+<form action="{{request.path}}" method="post">
+  
+  <div class="mb-3">
+    {%- for category, message in get_flashed_messages(with_categories = true) %} 
+      <div class = "alert alert-danger"> 
+        {{ message }} 
+      </div> 
+    {%- endfor %}
+    <p></p><br><br>
+    <br>
+        <div class="form-floating">
+          <label for="campus">Select Campus:</label>
+          <select class="form-control" name="campus_name" aria-label="Floating label select example">
+            <option value="Steve Biko">Steve Biko</option>
+            <option value="Ritson">Ritson</option>
+            <option value="ML Sultan">ML Sultan</option>
+          </select>
+        </div>
+        <p></p><br>
+        <div class="form-floating">
+          <label for="room_num">Enter Room Number:</label>
+          <input type="text" class="form-control" id="floatingInputValue" name="room_num" placeholder="BC0201" required>
+                 
+        </div>        
+        <p></p><br>
+        <div class="form-floating">
+          <label for="fault_desc">Select Fault Type:</label>
+            <select class="fault-dropdown" name="fault_desc" aria-label="Floating label select example">
+            <option value="Faulty Lights">Faulty Lights</option>
+            <option value="Air Conditioning/Ventilation">Air Conditioning/Ventilation</option>
+            <option value="Faulty Electrical Sockets">Faulty Electrical Sockets</option>
+            <option value="Faulty Projector">Faulty Projector</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      
+        <p></p><p></p><br>
+        <div class="form-floating">
+          <label for="comment">Comments:</label>
+          <textarea class="form-control" placeholder="Leave a comment here" name="comment_box" id="floatingTextarea2" style="width: 500px;" style="height: 600px;"></textarea>
+        </div>
+        <p></p><p></p><br>
+        <div>
+          <a class="btn btn-primary" href="{{url_for('welcome_user')}}" role="button">Cancel</a>
+        </div>
+        <br>
+        <div>
+          <input type = "submit" value = "Submit" />
+        </div>
+  </div>
+</form>
+
+
+
+  
+{% endblock %}

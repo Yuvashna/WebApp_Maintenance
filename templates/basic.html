@@ -1,0 +1,35 @@
+{% extends "base.html"%}
+{% block content %}
+
+{%- for category, message in get_flashed_messages(with_categories = true) %} 
+      <div class = "alert alert-danger"> 
+        {{ message }} 
+      </div> 
+{%- endfor %}
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Dashboard</h1>
+    <p></p><br>
+    <div>
+      
+      </div>
+      <p></p><br>
+      <div class="col-md2">
+        <a class="btn btn-primary" href="{{url_for('viewdb')}}" role="button">View Database</a>
+      </div>
+      <p></p><br>
+      <div class="col-md3">
+        <a class="btn btn-primary" href="{{url_for('write_feedback')}}" role="button">Write Feedback</a>
+      </div>
+      
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html"%}
+{% block content %}
+
+
+
+
+<form action="{{request.path}}" method="post">
+  {%- for category, message in get_flashed_messages(with_categories = true) %} 
+      <div class = "alert alert-danger"> 
+        {{ message }} 
+      </div> 
+  {%- endfor %}
+    <div class="mb-3">
+      <label for="exampleInputStud_id" class="form-label">Student Number</label>
+      <input type="Text" class="form-control" id="exampleInputStud_id" name="Stud_id" aria-describedby="emailHelp" required minlength="8" maxlength="8">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="Pssword" required minlength="8">
+    </div>
+    <input type = "submit" value = "Submit" />
+  </form>
+
+{% endblock %}

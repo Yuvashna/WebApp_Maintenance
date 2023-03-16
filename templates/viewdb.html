@@ -1,0 +1,43 @@
+{% extends "base.html"%}
+{% block content %}
+
+<form action="{{request.path}}" method="post">
+<div class="container">
+    <input type = "submit" value = "View Database Records" />
+        <table class="table" style="margin-left: 12px;">  <!--Table headers--> <th>
+             <tr style="color: black; "> 
+                <th>Ref Number</th> 
+                <th>Campus Name</th> 
+                <th>Room code</th> 
+                <th>Fault Type</th> 
+                <th>Comments</th>
+                <th>Date logged</th>
+                <th>Progress</th>
+                <th>Date Completed</th>
+                <th>Feedback</th>
+             </tr> 
+            <tr> {%for fault in maint1%}
+                <td> {{fault.id}} </td> 
+                <td> {{fault.build_name}} </td> 
+                <td> {{fault.build_room}} </td>
+                <td> {{fault.build_fault}} </td>
+                <td> {{fault.comments}} </td>
+                <td> {{fault.date_logged}} </td>
+                <td> {{fault.prgress}} </td>
+                <td> {{fault.date_completed}} </td>
+                <td> {{fault.feedback}} </td>
+            </tr>
+                {%endfor%} 
+            
+        </table> 
+</div>
+<div>
+    {% if user == 'Epadmin': %}
+        <a class="btn btn-primary" href="{{url_for('welcome')}}" role="button">Return to Home</a>
+    {% else %}
+        <a class="btn btn-primary" href="{{url_for('welcome_user')}}" role="button">Return to Home</a>
+    {% endif %}
+  </div>
+</form>
+
+{% endblock %}

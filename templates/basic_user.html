@@ -1,0 +1,29 @@
+{% extends "base.html"%}
+{% block content %}
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Dashboard</h1>
+    <p></p><br>
+    <div>
+      <div class="col-md">
+        <a class="btn btn-primary" href="{{url_for('logFault')}}" role="button">Log a Fault</a>
+      </div>
+      <p></p><br>
+      <div class="col-md1">
+        <a class="btn btn-primary" href="{{url_for('feedback')}}" role="button">View Records Created By You</a>
+      </div>
+      <p></p><br>
+      <div class="col-md2">
+        <a class="btn btn-primary" href="{{url_for('viewdb')}}" role="button">View Database</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}
