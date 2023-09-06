@@ -1,10 +1,10 @@
 # Web Application on Maintainance
-Development of a web application using HTML, Bootstrap and Python (using Flask Framework), the database utilzed was SQLite.
+Development of a web application using HTML, Bootstrap and Python (using Flask Framework) - the database utilzed was SQLite.
 
-A web application for students and lecturers to submit maintenance requests. 
-The web application allows a university to be able to manage maintenance calls and provide a safe and functional learning environment for students.
-A user is able to submit requests as well as view calls that was made by other users to see if there is a similar problem in the area.
-Admins is allowed to provide feedback on the requests as well as mark certain requests as done and close these calls
+This is a web application for students and lecturers to submit maintenance requests. 
+The web application allows a university/organization to be able to manage maintenance calls and provide a safe and functional environment for individuals.
+A user is able to submit requests as well as view calls that other people have created to determine if there are similar problems in the area.
+Admins are allowed to provide feedback on the requests as well as mark certain requests as done and close these calls
 
 This application is completely deployable on pythonanywhere.
 
